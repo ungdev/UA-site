@@ -1,0 +1,6 @@
+[submodule "UA-api"]
+	path = UA-api
+	url = git@github.com:ungdev/UA-api.git
+[submodule "UA-front"]
+	path = UA-front
+	url = git@github.com:ungdev/UA-front.git
