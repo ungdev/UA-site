@@ -13,14 +13,13 @@ networks:
 
 services:
   database:
-    image: docker.io/bitnami/mariadb:10.6
+    image: #to complete
     volumes:
-      - database:/bitnami/mariadb
-      - database_seed:/docker-entrypoint-initdb.d
-    env_file: env/db.env
+      - database: #to complete
+    env_file: ../UA-api/.env
     networks:
       - internal
-    healthcheck:
+    healthcheck: #???
       test: ["CMD", "/opt/bitnami/scripts/mariadb/healthcheck.sh"]
       interval: 15s
       timeout: 5s
@@ -46,3 +45,40 @@ services:
     env_file: ../UA-front/.env
     networks:
       - public
+
+  adminer:
+    image: #to complete
+    restart: always
+    ports:
+      - #to complete
+    networks:
+      - public
+      - internal
+  grafana:
+    image: #to complete
+    ports:
+      - 
+    volumes:
+      - grafana: #to complete
+    networks:
+      - public
+      - internal
+    restart: always
+  
+  filemanager:
+    image: #to complete
+    volumes:
+    env_file:
+    ports:
+
+
+  volumes:
+  database:
+    driver: local
+    name: ua_db
+  database_seed:
+    driver: local
+    name: ua_seed
+  grafana:
+    driver: local
+    name: ua_grafana
